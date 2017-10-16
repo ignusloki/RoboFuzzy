@@ -11,19 +11,26 @@ public class InterfaceFuzzy {
 		Tabuleiro tabuleiro = new Tabuleiro();
 		Robo robo = new Robo();
 		Fuzzifier fuzzifier = new Fuzzifier();
-		GrauPertinencia[] grauP;
 		MotorInferenciaFuzzie motorI = new MotorInferenciaFuzzie();
 		Desfuzzier desfuzzifier = new Desfuzzier();
+		GrauPertinencia[] grauP;
 		double[] utilidadePonto;
 		int direcao;
+		int passos;
 
 		while (!chegou) {
 
 			// Vê dois de espaco do tabuleiro e monta uma matrix visão
 			statusCoordenada = robo.verTabuleiro(tabuleiro);
+			passos = Robo.getContador();
+
+			if (passos == 100) {
+				System.out.println("Robo demorou demais e deve ter ficado preso! Numero de passos: " + passos);
+				break;
+			}
 
 			if (statusCoordenada == null) {
-				System.out.println("Robo chegou em no final");
+				System.out.println("Robo chegou no final com " + passos + " passos");
 				break;
 			}
 

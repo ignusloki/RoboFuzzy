@@ -2,7 +2,7 @@ package com.fuzzy;
 
 public class Robo {
 
-	int passos;
+	private static int contador = 0;
 	int coordenadaAtualX = 0;
 	int coordenadaAtualY = 0;
 	int visão = 2;
@@ -13,11 +13,11 @@ public class Robo {
 		int posX;
 		int posY;
 
-		for (int col = 0; col < 5; col++) {
-			for (int row = 0; row < 5; row++) {
+		for (int row = 0; row < 5; row++) {
+			for (int col = 0; col < 5; col++) {
 
-				posX = coordenadaAtualX - 2 + row;
-				posY = coordenadaAtualY - 2 + col;
+				posX = coordenadaAtualX - 2 + col;
+				posY = coordenadaAtualY - 2 + row;
 
 				if (posX < 0 || posX > 14 || posY < 0 || posY > 14) {
 
@@ -35,10 +35,7 @@ public class Robo {
 					}
 				}
 
-				System.out.print(tabuleiroVisao[row][col] + " ");
-
 			}
-			System.out.println();
 		}
 
 		// Interpretação da visão do Robo
@@ -171,6 +168,12 @@ public class Robo {
 		}
 		System.out.println("Coordenadas do Robo: " + coordenadaAtualX + "," + coordenadaAtualY);
 		System.out.println();
+		contador++;
 
+	}
+
+	public static int getContador() {
+
+		return contador;
 	}
 }

@@ -40,22 +40,22 @@ public class Fuzzifier {
 							gpCoordenada[iterador] = new GrauPertinencia(0.25, 1, 0, 0, 0, 0);
 							break;
 						case 4:
-						case 11:// 0
+						case 11:// 0 gráfico
 							gpCoordenada[iterador] = new GrauPertinencia(0, 0.5, 0.5, 0, 0, 0);
 							break;
 						case 6:
-						case 12:// 1
+						case 12:// 1 gráfico
 							gpCoordenada[iterador] = new GrauPertinencia(0, 0, 1, 0.25, 0, 0);
 							break;
 						case 8:
-						case 13:// 2
+						case 13:// 2 gráfico
 							gpCoordenada[iterador] = new GrauPertinencia(0, 0, 0.66, 0.5, 0, 0);
 							break;
 						case 10:
-						case 14:// 3
+						case 14:// 3 gráfico
 							gpCoordenada[iterador] = new GrauPertinencia(0, 0, 0.33, 0.75, 0, 0);
 							break;
-						case 15:// 4
+						case 15:// 4 gráfico
 							gpCoordenada[iterador] = new GrauPertinencia(0, 0, 0, 1, 0, 0);
 							break;
 						default:

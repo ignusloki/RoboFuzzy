@@ -9,31 +9,62 @@ public class Tabuleiro {
 
 	public int pegaStatus(int x, int y) {
 
-		return tabuleiro[x][y];
+		return tabuleiro[y][x];
 
 	}
 
 	public Tabuleiro() {
 
-		for (int i = 0; i < 15; i++) {
-			for (int j = 0; j < 15; j++) {
+		for (int y = 0; y < 15; y++) {
+			for (int x = 0; x < 15; x++) {
 
-				tabuleiro[i][j] = LIVRE;
-				System.out.println("Tabuleiro[" + i + "][" + j + "]" + " = Livre");
+				tabuleiro[y][x] = LIVRE;
 
 			}
 		}
 
 		criaObstaculo();
 		tabuleiro[14][14] = CHEGADA;
+
+		imprimeTabuleiro();
+
+	}
+
+	private void imprimeTabuleiro() {
+
+		for (int y = 0; y < 15; y++) {
+			for (int x = 0; x < 15; x++) {
+
+				System.out.print(tabuleiro[y][x] + " ");
+
+			}
+			System.out.println();
+		}
 	}
 
 	private void criaObstaculo() {
 
-		tabuleiro[2][2] = OBSTACULO;
-		tabuleiro[3][2] = OBSTACULO;
-		tabuleiro[4][2] = OBSTACULO;
+		int numeroObstaculos = 0;
 
+		while (numeroObstaculos < 7) {
+
+			int base = (int) (Math.random() * 168);
+			int x;
+			int y;
+
+			y = base / 15;
+			x = base % 15;
+
+			if (tabuleiro[y][x] == LIVRE && tabuleiro[y + 1][x] == LIVRE && tabuleiro[y + 2][x] == LIVRE) {
+
+				tabuleiro[y][x] = OBSTACULO;
+				tabuleiro[y + 1][x] = OBSTACULO;
+				tabuleiro[y + 2][x] = OBSTACULO;
+				numeroObstaculos++;
+
+			}
+
+		}
 	}
 
 }
