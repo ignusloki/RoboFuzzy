@@ -2,30 +2,30 @@ package com.fuzzy;
 
 public class MotorInferenciaFuzzie {
 
-	private static final double PESO_OBSTACULO = -10000;
-	private static int PESO_CHEGADA = 10000;
-	private static int PESO_APROXIMAM = 6;
-	private static int PESO_APROXIMAP = 3;
-	private static int PESO_AFASTAP = 2;
-	private static int PESO_AFASTAM = 1;
+	// 1- Se o ponto é chegada então a utilidade é altissima
+	// 2- Se o ponto é obstaculo então a utilidade é nula
+	// 3- Se ponto aproxima muito então a utilidade é muito alta
+	// 4- Se ponto aproxima pouco então a utilidade é pouco alto
+	// 5- Se ponto afasta pouco então a utilidade é pouco baixa
+	// 6- Se ponto afasta muito então a utilidade é muito baixa
 
-	// 1- Se o ponto é chegada então ande muito rapido (peso 10000) para o ponto
-	// 2- Se o ponto é obstaculo então não ande
-	// 3- Se ponto aproxima muito então ande rápido (peso 6) para o ponto
-	// 4- Se ponto aproxima pouco então ande normal (peso 3) para o ponto
-	// 5- Se ponto afasta pouco então ande devagar (peso 2) para o ponto
-	// 6- Se ponto afasta muito então ande muito devagar (peso 1) para o ponto*/
+	public GrauPertinenciaUtilidade[] inferenciaFuzzie(GrauPertinencia[] grauP) {
 
-	public double[] inferenciaFuzzie(GrauPertinencia[] grauP) {
-
-		double[] utilidadePonto = new double[16];
+		GrauPertinenciaUtilidade[] utilidadePonto = new GrauPertinenciaUtilidade[16];
 
 		for (int i = 0; i < utilidadePonto.length; i++) {
 
-			utilidadePonto[i] = grauP[i].getChegada() * PESO_CHEGADA + grauP[i].getAproximaM() * PESO_APROXIMAM
-					+ grauP[i].getAproximaP() * PESO_APROXIMAP + grauP[i].getAfastaP() * PESO_AFASTAP
-					+ grauP[i].getAfastaM() * PESO_AFASTAM + grauP[i].getObstaculo() * PESO_OBSTACULO;
-			System.out.print(i + ": '" + utilidadePonto[i] + "' ");
+			GrauPertinenciaUtilidade gpu = new GrauPertinenciaUtilidade();
+
+			gpu.setNulo(grauP[i].getObstaculo());
+			gpu.setAltissimo(grauP[i].getChegada());
+			gpu.setMuitoBaixa(grauP[i].getAfastaM());
+			gpu.setPoucoBaixa(grauP[i].getAfastaP());
+			gpu.setPoucoAlta(grauP[i].getAproximaP());
+			gpu.setMuitoAlta(grauP[i].getAproximaM());
+
+			utilidadePonto[i] = gpu;
+
 		}
 		System.out.println();
 

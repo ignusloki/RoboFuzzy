@@ -14,7 +14,7 @@ public class InterfaceFuzzy {
 		MotorInferenciaFuzzie motorI = new MotorInferenciaFuzzie();
 		Desfuzzier desfuzzifier = new Desfuzzier();
 		GrauPertinencia[] grauP;
-		double[] utilidadePonto;
+		GrauPertinenciaUtilidade[] utilidadePonto;
 		int direcao;
 		int passos;
 
