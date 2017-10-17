@@ -82,6 +82,7 @@ public class Robo {
 
 	}
 
+	// Realiza a ação de andar no tabuleiro
 	public void andarTabuleiro(int direcao) {
 
 		switch (direcao) {

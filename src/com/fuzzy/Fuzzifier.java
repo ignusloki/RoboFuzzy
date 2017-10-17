@@ -17,6 +17,7 @@ public class Fuzzifier {
 
 				System.out.print(matrixVisao[row][col] + " ");
 
+				// Fuzzifica as coordenadas que o Robo viu de acordo com o excel de visão.
 				if (row == 0 || row == 4 || col == 0 || col == 4) {
 					if (matrixVisao[row][col] == Tabuleiro.OBSTACULO)
 						gpCoordenada[iterador] = new GrauPertinencia(0, 0, 0, 0, 1, 0);

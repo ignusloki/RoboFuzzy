@@ -25,6 +25,8 @@ public class Desfuzzier {
 					+ utilidadePonto[i].getPoucoAlta() + utilidadePonto[i].getPoucoBaixa()
 					+ utilidadePonto[i].getMuitoBaixa() + utilidadePonto[i].getNulo());
 
+			// Capturo o primeiro melhor resultado para indicar o angulo que o robo vai
+			// andar
 			if (soma > aux) {
 
 				aux = soma;
