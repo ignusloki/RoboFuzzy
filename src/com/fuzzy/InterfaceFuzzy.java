@@ -15,7 +15,7 @@ public class InterfaceFuzzy {
 		MotorInferenciaFuzzie motorI = new MotorInferenciaFuzzie();
 		Desfuzzier desfuzzifier = new Desfuzzier();
 		GrauPertinenciaCoordenadas[] grauP;
-		GrauPertinenciaUtilidade[] utilidadePonto;
+		GrauPertinenciaUtilidade utilidadePonto;
 		int direcao;
 		int passos;
 
@@ -41,10 +41,10 @@ public class InterfaceFuzzy {
 			grauP = fuzzifier.fuzzificarCoordenada(statusCoordenada);
 
 			// Realiza a inferencia com as regras
-			utilidadePonto = motorI.inferenciaFuzzie(grauP);
+			utilidadePonto = motorI.inferenciaFuzzie();
 
 			// Desfuzzifica para tomar a decisão
-			direcao = desfuzzifier.desfuzzify(utilidadePonto);
+			direcao = desfuzzifier.desfuzzify(utilidadePonto, grauP);
 
 			// Anda com o robo
 			robo.andarTabuleiro(direcao);

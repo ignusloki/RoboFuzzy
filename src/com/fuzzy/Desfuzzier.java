@@ -2,28 +2,25 @@ package com.fuzzy;
 
 public class Desfuzzier {
 
-	private static final double NULO = -5;
-	private static final double ALTISSIMO = 5;
-	private static final double MUITOALTA = 3;
-	private static final double POUCOALTA = 1;
-	private static final double POUCOBAIXA = -1;
-	private static final double MUITOBAIXA = -3;
-
-	public int desfuzzify(GrauPertinenciaUtilidade[] utilidadePonto) {
+	public int desfuzzify(GrauPertinenciaUtilidade utilidadePonto, GrauPertinenciaCoordenadas[] grauP) {
 
 		int destino = -1;
 		double soma;
 		double aux = -5;
 
-		for (int i = 0; i < utilidadePonto.length; i++) {
+		for (int i = 0; i < grauP.length; i++) {
 
-			soma = utilidadePonto[i].getAltissimo() * ALTISSIMO + utilidadePonto[i].getMuitoAlta() * MUITOALTA
-					+ utilidadePonto[i].getPoucoAlta() * POUCOALTA + utilidadePonto[i].getPoucoBaixa() * POUCOBAIXA
-					+ utilidadePonto[i].getMuitoBaixa() * MUITOBAIXA + utilidadePonto[i].getNulo() * NULO;
+			// Grau de aderencia do que é a coordenada * grau de utilidade de acordo com a
+			// regra
+			soma = utilidadePonto.getAltissimo() * grauP[i].getChegada()
+					+ utilidadePonto.getMuitoAlta() * grauP[i].getAproximaM()
+					+ utilidadePonto.getPoucoAlta() * grauP[i].getAproximaP()
+					+ utilidadePonto.getPoucoBaixa() * grauP[i].getAfastaP()
+					+ utilidadePonto.getMuitoBaixa() * grauP[i].getAfastaM()
+					+ utilidadePonto.getNulo() * grauP[i].getObstaculo();
 
-			soma = soma / (utilidadePonto[i].getAltissimo() + utilidadePonto[i].getMuitoAlta()
-					+ utilidadePonto[i].getPoucoAlta() + utilidadePonto[i].getPoucoBaixa()
-					+ utilidadePonto[i].getMuitoBaixa() + utilidadePonto[i].getNulo());
+			soma = soma / (grauP[i].getChegada() + grauP[i].getAproximaM() + grauP[i].getAproximaP()
+					+ grauP[i].getAfastaP() + grauP[i].getAfastaM() + grauP[i].getObstaculo());
 
 			// Capturo o primeiro melhor resultado para indicar o angulo que o robo vai
 			// andar
