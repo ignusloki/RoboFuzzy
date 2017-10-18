@@ -9,7 +9,7 @@ public class MotorInferenciaFuzzie {
 	// 5- Se ponto afasta pouco então a utilidade é pouco baixa
 	// 6- Se ponto afasta muito então a utilidade é muito baixa
 
-	public GrauPertinenciaUtilidade[] inferenciaFuzzie(GrauPertinencia[] grauP) {
+	public GrauPertinenciaUtilidade[] inferenciaFuzzie(GrauPertinenciaCoordenadas[] grauP) {
 
 		GrauPertinenciaUtilidade[] utilidadePonto = new GrauPertinenciaUtilidade[16];
 

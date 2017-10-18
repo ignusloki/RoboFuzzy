@@ -55,7 +55,8 @@ public class Tabuleiro {
 			y = base / 15;
 			x = base % 15;
 
-			if (tabuleiro[y][x] == LIVRE && tabuleiro[y + 1][x] == LIVRE && tabuleiro[y + 2][x] == LIVRE) {
+			if ((tabuleiro[y][x] == LIVRE && tabuleiro[y + 1][x] == LIVRE && tabuleiro[y + 2][x] == LIVRE)
+					&& (x != 0 && y != 0) && (x != 12 && y != 12)) {
 
 				tabuleiro[y][x] = OBSTACULO;
 				tabuleiro[y + 1][x] = OBSTACULO;

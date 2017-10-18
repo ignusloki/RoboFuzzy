@@ -1,8 +1,8 @@
 package com.fuzzy;
 
-public class GrauPertinencia {
+public class GrauPertinenciaCoordenadas {
 
-	public GrauPertinencia(double afastaM, double afastaP, double aproximaP, double aproximaM, double obstaculo,
+	public GrauPertinenciaCoordenadas(double afastaM, double afastaP, double aproximaP, double aproximaM, double obstaculo,
 			double chegada) {
 		super();
 		this.afastaM = afastaM;
